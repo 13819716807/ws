@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>计算器 - My Website</title>
+</head>
+<body>
+    <!-- 网页头部区域开始 -->
+    <header>
+        <!-- 导航栏开始 -->
+        <nav>
+            <!-- 网站logo区域 -->
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <!-- 导航链接区域 -->
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于</a></li>
+                <li><a href="calculator.html">计算器</a></li>
+                <li><a href="#">服务</a></li>
+                <li><a href="#">联系</a></li>
+                <li><a href="https://bingai.wslm.us.kg">ai</a></li>
+            </ul>
+        </nav>
+        <!-- 导航栏结束 -->
+    </header>
+    <!-- 网页头部区域结束 -->
+    <!-- 主要内容区域开始 -->
+    <main>
+        <div class="calculator">
+            <input type="text" id="display" class="display" disabled>
+            <div class="buttons">
+                <button onclick="appendNumber('7')">7</button>
+                <button onclick="appendNumber('8')">8</button>
+                <button onclick="appendNumber('9')">9</button>
+                <button onclick="appendOperator('+')">+</button>
+                <button onclick="appendNumber('4')">4</button>
+                <button onclick="appendNumber('5')">5</button>
+                <button onclick="appendNumber('6')">6</button>
+                <button onclick="appendOperator('-')">-</button>
+                <button onclick="appendNumber('1')">1</button>
+                <button onclick="appendNumber('2')">2</button>
+                <button onclick="appendNumber('3')">3</button>
+                <button onclick="appendOperator('*')">*</button>
+                <button onclick="appendNumber('0')">0</button>
+                <button onclick="appendNumber('.')">.</button>
+                <button onclick="calculate()">=</button>
+                <button onclick="appendOperator('/')">/</button>
+                <button onclick="clearDisplay()">C</button>
+            </div>
+            <div class="memory">
+                <h3>计算历史</h3>
+                <ul id="memory"></ul>
+            </div>
+        </div>
+    </main>
+    <!-- 主要内容区域结束 -->
+    <script>
+        let currentInput = '';
+        let memory = [];
+
+        function appendNumber(number) {
+            currentInput += number;
+            document.getElementById('display').value = currentInput;
+        }
+
+        function appendOperator(operator) {
+            if (currentInput === '') return;
+            if (currentInput.endsWith('+') || currentInput.endsWith('-') || currentInput.endsWith('*') || currentInput.endsWith('/')) {
+                currentInput = currentInput.slice(0, -1);
+            }
+            currentInput += operator;
+            document.getElementById('display').value = currentInput;
+        }
+
+        function calculate() {
+            try {
+                const result = eval(currentInput);
+                const expression = `${currentInput} = ${result}`;
+                currentInput = result.toString();
+                document.getElementById('display').value = currentInput;
+                memory.push(expression);
+                updateMemory();
+            } catch (e) {
+                alert('无效的表达式');
+            }
+        }
+
+        function clearDisplay() {
+            currentInput = '';
+            document.getElementById('display').value = '';
+        }
+
+        function updateMemory() {
+            const memoryList = document.getElementById('memory');
+            memoryList.innerHTML = '';
+            for (let i = memory.length - 1; i >= 0; i--) {
+                const li = document.createElement('li');
+                li.textContent = memory[i];
+                memoryList.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>

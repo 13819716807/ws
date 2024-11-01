@@ -1,0 +1,186 @@
+/* 现有样式 */
+body {
+    /* 设置字体为Arial，无边距和填充，背景色为浅灰色 */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    /* 固定在页面顶部，宽度为100%，背景色为浅黄色，有阴影效果，层级最高 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(250, 247, 143);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+nav {
+    /* 使用Flexbox布局，内容左右对齐，上下居中，内边距为10px和20px */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    /* 设置Logo容器为Flex容器，并居中对齐内容 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* 设置容器的高度 */
+}
+
+.logo img {
+    /* 设置Logo图片的高度为150px */
+    height: 150px;
+}
+
+.logo span {
+    /* 设置文本样式 */
+    font-size: 24px; /* 设置字体大小 */
+    font-weight: bold; /* 设置字体加粗 */
+    color: #eb0000; /* 设置字体颜色 */
+}
+
+.nav-links {
+    /* 无列表样式，使用Flexbox布局，项目间有20px间距 */
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    /* 设置li元素的初始高度和宽度 */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, height 0.3s, width 0.3s;
+}
+
+.nav-links li a {
+    /* 链接文本无下划线，颜色为深灰色，字体大小为16px */
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    padding: 10px 20px; /* 增大内边距，使链接的可点击区域变大 */
+}
+
+
+.nav-links li a:hover {
+    /* 链接悬停时背景色变灰 */
+    background-color: #f0f0f0;
+}
+
+.nav-links li:hover {
+    /* li元素悬停时扩展为更大的方块 */
+    height: 60px;
+    width: 120px;
+    background-color: #f0f0f0;
+}
+
+main {
+    /* 内边距顶部为80px，使用Flexbox布局，内容居中，最小高度为视口高度 */
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.calculator {
+    /* 宽度为300px，有边框和内边距，背景色为白色，有阴影效果 */
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.display {
+    /* 宽度100%，高度50px，底部有10px间距，内边距10px，字体大小18px，右对齐，有边框和圆角 */
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 18px;
+    text-align: right;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons {
+    /* 使用Grid布局，4列等宽，项目间有10px间距 */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.buttons button {
+    /* 按钮宽度100%，高度50px，字体大小18px，有边框和圆角，鼠标悬停时背景色变浅 */
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    /* 按钮悬停时背景色变浅 */
+    background-color: #f0f0f0;
+}
+
+.memory {
+    /* 顶部有20px间距，内边距10px，有边框和圆角，背景色为浅灰色 */
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.memory h3 {
+    /* 标题无边距，字体大小16px */
+    margin: 0;
+    font-size: 16px;
+}
+
+.memory ul {
+    /* 列表无样式，无内边距，顶部有10px间距 */
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+.memory ul li {
+    /* 列表项间有5px间距，字体大小14px */
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* index.html 的样式 */
+.content-one {
+    /* 有上下边距和内边距，背景色为白色，有边框和圆角，最大宽度为800px，内容居中 */
+    margin: 20px 0;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 800px;
+    text-align: center;
+}
+
+.content-two {
+    /* 有上下边距和内边距，背景色为白色，有边框和圆角，最大宽度为800px，内容居中 */
+    margin: 20px 0;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 800px;
+    text-align: center;
+}
